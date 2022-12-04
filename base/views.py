@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
-from .models import Room, Topic, Message
+from .models import Room, Topic, Message, Profile
 from .forms import RoomForm, UserForm
 
 
@@ -109,8 +109,9 @@ def userProfile(request, pk):
     room_messages = user.message_set.all()
     topics = Topic.objects.all()
     rooms = user.room_set.all()
+    profile = Profile.objects.get(user_id=pk)
     context = {'user': user, 'rooms': rooms,
-               'room_messages': room_messages, 'topics': topics}
+               'room_messages': room_messages, 'topics': topics, 'profile': profile}
     return render(request, 'base/profile.html', context)
 
 

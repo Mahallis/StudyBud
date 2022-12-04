@@ -24,12 +24,18 @@
           {% endif %}
         </div>
         <div class="profile__about">
-          <h3>About</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo tenetur
-            facilis sunt nemo debitis quisquam hic atque aut? Ducimus alias placeat optio
-            accusamus repudiandae quis ab ex exercitationem rem?
-          </p>
+          <h3>City: {% if not profile.city %}
+            there is no city
+          {% else %}
+            {{profile.city}}
+          {% endif %}
+        </h3>
+          <h3>Phone: {% if not profile.phone %}
+              there is no phone
+            {% else %}
+              {{profile.phone}}
+            {% endif %}
+          </h3>
         </div>
       </div>
 
